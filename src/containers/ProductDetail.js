@@ -9,10 +9,8 @@ import { selectedProducts, removeselectedProducts } from "../redux/actions/produ
 const ProductDetail = () => {
     const product = useSelector((state) => state.product)
     const {image,title,price,category,description} = product
-    console.log("product", product)
     const { productId } = useParams();
     const dispatch = useDispatch()
-    console.log(productId)
     useEffect(() => {
         fetchProductDetail(productId)
     }, [])
@@ -21,7 +19,6 @@ const ProductDetail = () => {
         const response = await axios.get(`https://fakestoreapi.com/products/${productId}`).catch((err) => {
             console.log("err", err)
         })
-        console.log(response.data)
         dispatch(selectedProducts(response.data))
     }
     useEffect(() => {
