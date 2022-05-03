@@ -12,10 +12,9 @@ function App() {
       <BrowserRouter>
       <Header/>
       <Routes>
-        <Route path="/" element={<ProductListing />}>
-          <Route path="/product/:productId" element={<ProductDetail />} />
+        <Route path="/" exact element={<ProductListing />}/>
+          <Route path="/product/:productId" element={<ProductDetail/>} />
           <Route>404 Not found!</Route>
-        </Route>
       </Routes>
     </BrowserRouter>
 
